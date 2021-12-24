@@ -7,14 +7,12 @@ plugins {
 
 android {
     compileSdk 31
-
     defaultConfig {
         applicationId "com.stambulo.learningassistant"
         minSdk 26
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -40,7 +38,6 @@ dependencies {
     //Navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-dynamic-features-fragment:2.3.5'
 
     // Dagger Core
     implementation "com.google.dagger:dagger:2.40.5"
