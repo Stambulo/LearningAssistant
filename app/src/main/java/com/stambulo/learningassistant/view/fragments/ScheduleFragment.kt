@@ -19,11 +19,4 @@ class ScheduleFragment: Fragment() {
         _binding = FragmentScheduleBinding.inflate(inflater, container, false)
         return _binding?.root
     }
-
-    override fun onStart() {
-        super.onStart()
-        binding.btnBack.setOnClickListener {
-            (activity as MainActivity).navController.navigate(R.id.action_scheduleFragment_to_homeFragment)
-        }
-    }
 }

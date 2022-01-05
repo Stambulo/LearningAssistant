@@ -2,4 +2,18 @@
     <string name="app_name">Learning Assistant</string>
     <string name="home">Home</string>
     <string name="schedule">Schedule</string>
+    <string name="are_you_ready_for_exams">Are you ready for exams ?</string>
+    <string name="days_09">09</string>
+    <string name="hours_23">23</string>
+    <string name="minutes_59">59</string>
+    <string name="twin_dots">:</string>
+    <string name="days">Days</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="classes">Classes</string>
+    <string name="classes_today_6">6</string>
+    <string name="classes_today">classes today</string>
+    <string name="homeworks">Homeworks</string>
+    <string name="open_in">Open in</string>
+    <string name="today">Today</string>
 </resources>
