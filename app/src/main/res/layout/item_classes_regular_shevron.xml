@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,7 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.stambulo.learningassistant.view.custom.CustomTextView
-                android:id="@+id/openSkype"
+                android:id="@+id/open_in"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
@@ -72,26 +71,18 @@
                 tools:text="History" />
 
             <TextView
-                android:id="@+id/tv_time"
+                android:id="@+id/tv_teacher"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:gravity="start"
                 android:textColor="@color/item_text"
-                android:textSize="20sp"
-                app:drawableLeftCompat="@drawable/ic_clock"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/tv_classes"
-                tools:text=" 10:15-11:00" />
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/gr_openin"
-                android:visibility="visible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:constraint_referenced_ids="openSkype,view" />
+                tools:text="Teacher: Mrs Thomas" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

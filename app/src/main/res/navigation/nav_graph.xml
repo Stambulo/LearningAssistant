@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/home_fragment"
         android:label="Home"
-        android:name="com.stambulo.learningassistant.view.fragments.HomeFragment"
+        android:name="com.stambulo.learningassistant.view.fragments.home.HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_scheduleFragment"
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/schedule_fragment"
         android:label="Schedule"
-        android:name="com.stambulo.learningassistant.view.fragments.ScheduleFragment"
+        android:name="com.stambulo.learningassistant.view.fragments.schedule.ScheduleFragment"
         tools:layout="@layout/fragment_schedule">
         <action
             android:id="@+id/action_scheduleFragment_to_homeFragment"

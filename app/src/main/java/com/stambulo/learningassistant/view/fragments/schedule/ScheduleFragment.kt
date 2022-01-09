@@ -1,4 +1,4 @@
-package com.stambulo.learningassistant.view.fragments
+package com.stambulo.learningassistant.view.fragments.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import com.stambulo.learningassistant.R
 import com.stambulo.learningassistant.databinding.FragmentScheduleBinding
 import com.stambulo.learningassistant.view.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ScheduleFragment: Fragment() {
 
     private var _binding: FragmentScheduleBinding? = null

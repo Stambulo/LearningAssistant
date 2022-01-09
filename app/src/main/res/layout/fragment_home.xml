@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     android:background="@color/black"
-    tools:context=".view.fragments.HomeFragment">
+    tools:context=".view.fragments.home.HomeFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -214,7 +214,29 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_classes" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_classes"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_classes"
+        app:layout_constraintEnd_toEndOf="@+id/rv_classes"
+        app:layout_constraintStart_toStartOf="@+id/rv_classes"
+        app:layout_constraintTop_toTopOf="@+id/rv_classes" />
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_data"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_classes"
+        app:layout_constraintEnd_toEndOf="@+id/rv_classes"
+        app:layout_constraintStart_toStartOf="@+id/rv_classes"
+        app:layout_constraintTop_toTopOf="@+id/rv_classes"/>
 
     <TextView
         android:id="@+id/homeworks"
@@ -239,5 +261,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeworks"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar_homework"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rv_homework"
+        app:layout_constraintStart_toStartOf="@+id/rv_homework"
+        app:layout_constraintTop_toBottomOf="@+id/rv_classes" />
+
+    <TextView
+        android:id="@+id/tv_no_data_homework"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_data"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_homework"
+        app:layout_constraintEnd_toEndOf="@+id/rv_homework"
+        app:layout_constraintStart_toStartOf="@+id/rv_homework"
+        app:layout_constraintTop_toTopOf="@+id/rv_homework"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

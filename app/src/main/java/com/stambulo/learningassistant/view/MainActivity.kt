@@ -12,11 +12,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.stambulo.learningassistant.R
 import com.stambulo.learningassistant.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    val navController by lazy {
+    private val navController by lazy {
         (supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment).navController }
 
     override fun onCreate(savedInstanceState: Bundle?) {

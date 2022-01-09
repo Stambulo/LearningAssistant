@@ -15,5 +15,7 @@
     <string name="classes_today">classes today</string>
     <string name="homeworks">Homeworks</string>
     <string name="open_in">Open in</string>
-    <string name="today">Today</string>
+    <string name="today">Today, </string>
+    <string name="schedule_date">1 June</string>
+    <string name="no_data">No Data</string>
 </resources>
