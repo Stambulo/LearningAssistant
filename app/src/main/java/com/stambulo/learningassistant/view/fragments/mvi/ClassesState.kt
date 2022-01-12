@@ -1,4 +1,4 @@
-package com.stambulo.learningassistant.view.fragments.home
+package com.stambulo.learningassistant.view.fragments.mvi
 
 import com.stambulo.learningassistant.view.model.DataItemClasses
 

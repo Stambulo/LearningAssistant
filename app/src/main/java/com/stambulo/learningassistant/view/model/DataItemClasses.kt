@@ -21,7 +21,7 @@ sealed class DataItemClasses {
         var openSkype: Boolean = false
     ): DataItemClasses()
 
-    data class Header(
+    data class Delimiter(
         val startLesson: String,
         val endLesson: String,
         val isActive: Boolean = false

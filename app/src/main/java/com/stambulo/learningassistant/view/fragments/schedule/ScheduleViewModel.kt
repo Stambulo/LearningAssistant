@@ -1,4 +1,4 @@
-package com.stambulo.learningassistant.view.fragments.home
+package com.stambulo.learningassistant.view.fragments.schedule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,34 +15,19 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : ViewModel() {
+open class ScheduleViewModel @Inject constructor(): ViewModel() {
     @Inject lateinit var repository: AssistantRepository
     @Inject lateinit var dateUtility: DateUtility
     val classesIntent = Channel<ClassesIntent>(Channel.UNLIMITED)
-    val homeworkIntent = Channel<HomeworkIntent>(Channel.UNLIMITED)
-    private val _state = MutableStateFlow<ClassesState>(ClassesState.Idle)
+    val _state = MutableStateFlow<ClassesState>(ClassesState.Idle)
     val state: StateFlow<ClassesState> get() = _state
-    private val _homeworkState = MutableStateFlow<HomeworkState>(HomeworkState.Idle)
-    val homeworkState: StateFlow<HomeworkState> get() = _homeworkState
     var currentClass: Int = 0
 
-    init {
-        handleIntent()
-        handleHomeworkIntent()
-    }
+    init{ handleIntent() }
 
-    private fun handleHomeworkIntent(){
-        viewModelScope.launch {
-            homeworkIntent.consumeAsFlow().collect {
-                when (it) {is HomeworkIntent.FetchHomework -> fetchHomework()}
-            }
-        }
-    }
-
-    private fun handleIntent() {
+    private fun handleIntent(){
         viewModelScope.launch {
             classesIntent.consumeAsFlow().collect {
                 when (it) {is ClassesIntent.FetchClasses -> fetchClasses()}
@@ -50,42 +35,34 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    private fun fetchClasses() {
+    private fun fetchClasses(){
         currentClass = 0
         _state.value = ClassesState.Loading
         viewModelScope.launch {
             try {
                 var newClassesList: ArrayList<DataItemClasses> = ArrayList()
                 repository.getClasses().forEach {
-                    val isActiv = dateUtility.isDatePeriod(it.startLesson, it.endLesson)
-                    if (isActiv) currentClass = newClassesList.size
+                    val isActive = dateUtility.isDatePeriod(it.startLesson, it.endLesson)
+                    if (isActive) currentClass = newClassesList.size
+                    newClassesList.add(DataItemClasses.Delimiter(it.startLesson, it.endLesson, isActive))
                     if (it.topic.isEmpty()){
                         newClassesList.add(
                             DataItemClasses.Classes(
                                 it.startLesson, it.endLesson, it.subject,
-                                it.teacher, it.topic, it.icon, isActiv
+                                it.teacher, it.topic, it.icon, isActive
                             )
                         )
                     } else {
                         newClassesList.add(
                             DataItemClasses.AdditionalClasses(
                                 it.startLesson, it.endLesson, it.subject,
-                                it.teacher, it.topic, it.icon, isActiv
+                                it.teacher, it.topic, it.icon, isActive
                             )
                         )
                     }
                 }
                 _state.value = ClassesState.ClassesSuccess(newClassesList)
             } catch (e: Exception) { ClassesState.Error(e.localizedMessage) }
-        }
-    }
-
-    private fun fetchHomework(){
-        _homeworkState.value = HomeworkState.Loading
-        viewModelScope.launch {
-            try{
-                _homeworkState.value = HomeworkState.HomeworkSuccess(repository.getHomework())
-            } catch (e: Exception){_homeworkState.value = HomeworkState.Error(e.localizedMessage)}
         }
     }
 }

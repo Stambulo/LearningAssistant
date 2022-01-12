@@ -12,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.stambulo.learningassistant.databinding.FragmentHomeBinding
 import com.stambulo.learningassistant.model.Homework
+import com.stambulo.learningassistant.view.fragments.mvi.ClassesIntent
+import com.stambulo.learningassistant.view.fragments.mvi.ClassesState
 import com.stambulo.learningassistant.view.model.DataItemClasses
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -26,7 +28,7 @@ class HomeFragment : Fragment() {
     private val homeworkAdapter by lazy(LazyThreadSafetyMode.NONE) { HomeworkAdapter() }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -134,7 +136,7 @@ class HomeFragment : Fragment() {
     private val clickListener: OnListItemClickListener =
         object : OnListItemClickListener {
             override fun onItemClick() {
-                Toast.makeText(context, "Открываем Skype", Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(context, "Открываем Skype", Toast.LENGTH_SHORT).show()
         }
+    }
 }

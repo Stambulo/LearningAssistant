@@ -2,8 +2,11 @@ package com.stambulo.learningassistant.utility
 
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class DateUtility {
+@Singleton
+class DateUtility @Inject constructor() {
     fun isDatePeriod(start: String, end: String): Boolean {
         val now = Calendar.getInstance(TimeZone.getDefault())
         val nowHour = now[Calendar.HOUR_OF_DAY]
